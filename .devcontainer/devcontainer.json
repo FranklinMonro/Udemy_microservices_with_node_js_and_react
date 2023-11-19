@@ -19,7 +19,9 @@
 			"extensions": [
 				"xabikos.JavaScriptSnippets",
 				"dbaeumer.vscode-eslint",
-				"rvest.vs-code-prettier-eslint"
+				"rvest.vs-code-prettier-eslint",
+				"chris-noring.node-snippets",
+				"rangav.vscode-thunder-client"
 			]
 		}
 	}
