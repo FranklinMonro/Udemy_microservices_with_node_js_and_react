@@ -31,7 +31,7 @@ class App {
       res.send('Welcome to Udemy_microservices_with_node_js_and_react posts API');
     });
 
-    this.httpServer.use('/', PostRouter);
+    this.httpServer.use('/posts', PostRouter);
 
     this.httpServer.use((err: Error, req: Request, res: Response, next: NextFunction) => {
       errorLog.log('error', `Error name: ${err.name}, error stack: ${err.stack}, message: ${err.message}`);
