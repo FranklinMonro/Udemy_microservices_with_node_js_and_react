@@ -11,9 +11,9 @@ import {
 
 const postCommentsController = (req: Request, res: Response, next: NextFunction): void => {
     try {
-        const { id } = req.params;
+        const { postID } = req.params;
         const { content } = req.body;
-        const postUtils = postCommentsUtils(id, content);
+        const postUtils = postCommentsUtils(postID, content);
         res.status(201).send(postUtils);
     } catch (error) {
         log.log('error', `URL ${req.baseUrl}, error: ${error}`);
@@ -23,8 +23,8 @@ const postCommentsController = (req: Request, res: Response, next: NextFunction)
 
 const getCommentsController = (req: Request, res: Response, next: NextFunction): void => {
     try {
-        const { id } = req.params;
-        const getUtils = getCommentsUtils(id);
+        const { postID } = req.params;
+        const getUtils = getCommentsUtils(postID);
         res.status(200).send(getUtils);
     } catch (error) {
         log.log('error', `URL ${req.baseUrl}, error: ${error}`);
