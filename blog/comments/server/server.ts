@@ -34,7 +34,6 @@ const onListening = () => {
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${PORT}`;
   console.log(`Listening on ${bind}`);
   console.log(`Localhost: http://${HOST}:${PORT}`);
-  console.log(`PGAdmin4 listening on:  http://${HOST}:5050`);
   debug(`Listening on ${bind}`);
 };
 
