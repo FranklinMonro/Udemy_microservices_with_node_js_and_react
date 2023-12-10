@@ -11,8 +11,10 @@ import {
 
 const postCommentsController = (req: Request, res: Response, next: NextFunction): void => {
     try {
-        const postUtils = postCommentsUtils();
-        res.sendStatus(200).send(postUtils);
+        const { id } = req.params;
+        const { content } = req.body;
+        const postUtils = postCommentsUtils(id, content);
+        res.status(201).send(postUtils);
     } catch (error) {
         log.log('error', `URL ${req.baseUrl}, error: ${error}`);
         next(error);
@@ -21,8 +23,9 @@ const postCommentsController = (req: Request, res: Response, next: NextFunction)
 
 const getCommentsController = (req: Request, res: Response, next: NextFunction): void => {
     try {
-        const getUtils = getCommentsUtils();
-        res.sendStatus(200).send(getUtils);
+        const { id } = req.params;
+        const getUtils = getCommentsUtils(id);
+        res.status(200).send(getUtils);
     } catch (error) {
         log.log('error', `URL ${req.baseUrl}, error: ${error}`);
         next(error);
@@ -32,7 +35,7 @@ const getCommentsController = (req: Request, res: Response, next: NextFunction):
 const putCommentsController = (req: Request, res: Response, next: NextFunction): void => {
     try {
         const putUtils = putCommentsUtils();
-        res.sendStatus(200).send(putUtils);
+        res.status(200).send(putUtils);
     } catch (error) {
         log.log('error', `URL ${req.baseUrl}, error: ${error}`);
         next(error);
@@ -42,7 +45,7 @@ const putCommentsController = (req: Request, res: Response, next: NextFunction):
 const deleteCommentsController = (req: Request, res: Response, next: NextFunction): void => {
     try {
         const deleteUtils = deleteCommentsUtils();
-        res.sendStatus(200).send(deleteUtils);
+        res.status(200).send(deleteUtils);
     } catch (error) {
         log.log('error', `URL ${req.baseUrl}, error: ${error}`);
         next(error);

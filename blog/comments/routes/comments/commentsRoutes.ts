@@ -12,13 +12,13 @@ class CommentsRouter {
 
     constructor() {
 
-        this.router.post('/', postCommentsController);
+        this.router.post('/:postID/comments', postCommentsController);
 
-        this.router.get('/', getCommentsController);
+        this.router.get('/:postID/comments', getCommentsController);
 
-        this.router.put('/', putCommentsController);
+        this.router.put('/:postID/comments/:commentID', putCommentsController);
 
-        this.router.delete('/', deleteCommentsController);
+        this.router.delete('/:postID/comments/:commentID', deleteCommentsController);
     }
 }
 

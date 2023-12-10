@@ -31,7 +31,7 @@ class App {
       res.send('Welcome to Udemy_microservices_with_node_js_and_react comments API');
     });
 
-    this.httpServer.use('/comments', CommentsRouter);
+    this.httpServer.use('/posts', CommentsRouter);
 
     this.httpServer.use((err: Error, req: Request, res: Response, next: NextFunction) => {
       errorLog.log('error', `Error name: ${err.name}, error stack: ${err.stack}, message: ${err.message}`);
