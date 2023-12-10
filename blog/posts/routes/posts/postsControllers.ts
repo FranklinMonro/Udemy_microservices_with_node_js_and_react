@@ -11,8 +11,9 @@ import {
 
 const postPostController = (req: Request, res: Response, next: NextFunction): void => {
     try {
-        const postUtils = postPostsUtils();
-        res.status(200).send(postUtils);
+        const { title = '' } = req.body;
+        const postUtils = postPostsUtils(title);
+        res.status(201).send(postUtils);
     } catch (error) {
         log.log('error', `URL ${req.baseUrl}, error: ${error}`);
         next(error);

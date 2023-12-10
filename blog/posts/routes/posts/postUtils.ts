@@ -1,37 +1,51 @@
+import { randomBytes } from 'crypto';
+
 import { postLogger as log } from '../../server/winstonLogger';
+import Post from './postsInterfaces';
 
-const POSTS = {};
+let POSTS: Post = {};
 
-const postPostsUtils = () => {
+const postPostsUtils = (title: string): Post => {
     try {
-        
+        const id = randomBytes(4).toString('hex');
+        POSTS = {
+            id,
+            post: {
+                id,
+                title,
+            },
+        };
+        return POSTS;
     } catch (error) {
         log.log('error', `Error in post utils, error: ${error}`);
         throw error;
     }
 };
 
-const getPostsUtils = () => {
+const getPostsUtils = (): Post => {
     try {
         
+        return POSTS;
     } catch (error) {
         log.log('error', `Error in get utils, error: ${error}`);
         throw error;
     }
 };
 
-const putPostsUtils = () => {
+const putPostsUtils = (): Post => {
     try {
         
+        return POSTS;
     } catch (error) {
         log.log('error', `Error in put utils, error: ${error}`);
         throw error;
     }
 };
 
-const deletePostsUtils = () => {
+const deletePostsUtils = (): Post => {
     try {
         
+        return POSTS;
     } catch (error) {
         log.log('error', `Error in delete post, error: ${error}`);
         throw error;
