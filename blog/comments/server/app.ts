@@ -3,6 +3,7 @@ import express, { NextFunction, Request, Response } from 'express';
 
 import { appLogger as log, errorHandlerLogger as errorLog } from './winstonLogger';
 
+import CommentsRouter from '../routes/comments/commentsRoutes';
 
 class App {
   public httpServer = express();
@@ -28,6 +29,14 @@ class App {
     this.httpServer.get('/', (req: Request, res: Response) => {
       console.log('Welcome to Udemy_microservices_with_node_js_and_react comments API');
       res.send('Welcome to Udemy_microservices_with_node_js_and_react comments API');
+    });
+
+    this.httpServer.use('/', CommentsRouter);
+
+    this.httpServer.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+      errorLog.log('error', `Error name: ${err.name}, error stack: ${err.stack}, message: ${err.message}`);
+      res.send(err);
+      next();
     });
 
     process.once('uncaughtException', (err: Error) => {

@@ -72,29 +72,11 @@ const serverLogger = createLogger({
   },
 });
 
-const sentenceLogger = createLogger({
+const postLogger = createLogger({
   transports: [
     new transports.File({
       dirname: 'logs',
-      filename: 'sentenceLogger.log',
-    }),
-  ],
-  format: format.combine(
-    format.timestamp(),
-    format.printf(({
-      timestamp, level, message, service,
-    }) => `[${timestamp}] ${service} ${level}: ${message}`),
-  ),
-  defaultMeta: {
-    service: 'WinstonExample',
-  },
-});
-
-const wordsApiLogger = createLogger({
-  transports: [
-    new transports.File({
-      dirname: 'logs',
-      filename: 'wordsApiLogger.log',
+      filename: 'postLogger.log',
     }),
   ],
   format: format.combine(
@@ -113,4 +95,5 @@ export {
   configLogger,
   errorHandlerLogger,
   serverLogger,
+  postLogger,
 };
