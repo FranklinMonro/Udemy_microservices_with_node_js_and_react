@@ -1,11 +1,18 @@
 import { Request, Response, NextFunction } from 'express';
 
 import { postLogger as log } from '../../server/winstonLogger';
+import { 
+    deletePostsUtils,
+    getPostsUtils,
+    postPostsUtils,
+    putPostsUtils,
+} from './postUtils';
 
 
 const postPostController = (req: Request, res: Response, next: NextFunction): void => {
     try {
-        res.sendStatus(200);
+        const postUtils = postPostsUtils();
+        res.status(200).send(postUtils);
     } catch (error) {
         log.log('error', `URL ${req.baseUrl}, error: ${error}`);
         next(error);
@@ -14,7 +21,8 @@ const postPostController = (req: Request, res: Response, next: NextFunction): vo
 
 const getPostController = (req: Request, res: Response, next: NextFunction): void => {
     try {
-        res.sendStatus(200);
+        const getUtils = getPostsUtils();
+        res.sendStatus(200).send(getUtils);
     } catch (error) {
         log.log('error', `URL ${req.baseUrl}, error: ${error}`);
         next(error);
@@ -23,7 +31,8 @@ const getPostController = (req: Request, res: Response, next: NextFunction): voi
 
 const putPostController = (req: Request, res: Response, next: NextFunction): void => {
     try {
-        res.sendStatus(200);
+        const putUtils = putPostsUtils();
+        res.sendStatus(200).send(putUtils);
     } catch (error) {
         log.log('error', `URL ${req.baseUrl}, error: ${error}`);
         next(error);
@@ -32,7 +41,8 @@ const putPostController = (req: Request, res: Response, next: NextFunction): voi
 
 const deletePostController = (req: Request, res: Response, next: NextFunction): void => {
     try {
-        res.sendStatus(200);
+        const deleteUtils = deletePostsUtils();
+        res.sendStatus(200).send(deleteUtils);
     } catch (error) {
         log.log('error', `URL ${req.baseUrl}, error: ${error}`);
         next(error);
