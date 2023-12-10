@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "target": "es2016",
+      "module": "commonjs",
+      "baseUrl": "./",
+      "paths": {
+        "*": ["./blog/comments/*"]
+      },
+      "outDir": "./dist",
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "strict": true,
+      "skipLibCheck": true
+    },
+    "include": ["./blog/comments/"],
+    "exclude": ["./node_modules", "./dist"]
+  }
