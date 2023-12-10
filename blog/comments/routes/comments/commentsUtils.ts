@@ -1,6 +1,6 @@
 import { commentsLogger as log } from '../../server/winstonLogger';
 
-const POSTs = {};
+const COMMENTS = {};
 
 const postCommentsUtils = () => {
     try {

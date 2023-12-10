@@ -1,6 +1,6 @@
 import { postLogger as log } from '../../server/winstonLogger';
 
-const POSTs = {};
+const POSTS = {};
 
 const postPostsUtils = () => {
     try {
