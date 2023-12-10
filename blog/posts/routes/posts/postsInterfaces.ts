@@ -1,11 +1,7 @@
 interface Post {
     id?: string;
-    post?: PostDetails;
+    title?: string;
 };
 
-interface PostDetails {
-    id?: string;
-    title?: string;
-}
 
 export default Post;

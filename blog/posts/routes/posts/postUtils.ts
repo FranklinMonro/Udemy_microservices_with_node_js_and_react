@@ -3,18 +3,15 @@ import { randomBytes } from 'crypto';
 import { postLogger as log } from '../../server/winstonLogger';
 import Post from './postsInterfaces';
 
-let POSTS: Post = {};
+let POSTS: Post[] = [];
 
-const postPostsUtils = (title: string): Post => {
+const postPostsUtils = (title: string): Post[] => {
     try {
         const id = randomBytes(4).toString('hex');
-        POSTS = {
+        POSTS.push({
             id,
-            post: {
-                id,
-                title,
-            },
-        };
+            title,
+        });
         return POSTS;
     } catch (error) {
         log.log('error', `Error in post utils, error: ${error}`);
@@ -22,7 +19,7 @@ const postPostsUtils = (title: string): Post => {
     }
 };
 
-const getPostsUtils = (): Post => {
+const getPostsUtils = (): Post[] => {
     try {
         
         return POSTS;
@@ -32,7 +29,7 @@ const getPostsUtils = (): Post => {
     }
 };
 
-const putPostsUtils = (): Post => {
+const putPostsUtils = (): Post[] => {
     try {
         
         return POSTS;
@@ -42,7 +39,7 @@ const putPostsUtils = (): Post => {
     }
 };
 
-const deletePostsUtils = (): Post => {
+const deletePostsUtils = (): Post[] => {
     try {
         
         return POSTS;
